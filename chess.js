@@ -367,6 +367,7 @@ function piecesRules() {
 
         document.querySelector(piecesArr[i]).addEventListener('click', () => {
             removeAllClicks();
+            piecesRules();
             removeHighlights(true); 
             document.querySelector(piecesArr[i]).style.backgroundColor = 'lightGreen'; 
             stopColor = true;  
