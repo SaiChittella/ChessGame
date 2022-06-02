@@ -347,7 +347,7 @@ board = {
 }
 
 // speedy speedy
-function piecesRules(callFunc) {
+function piecesRules() {
     for(let i = 0; i<piecesArr.length; i++) {
         let stopColor = false;
         document.querySelector(piecesArr[i]).addEventListener('mouseover', () => {
@@ -642,7 +642,7 @@ function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => {
-            if((piece.charAt(0) === 'p' || ((piece.charAt(0) === 'b' && piece.charAt(5) === 'p')) && board[piece]['firstMove'] === true)){
+            if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
                 board[piece]['firstMove'] = false;  
             }
@@ -703,7 +703,7 @@ function movePiece(newPosition, originalPosition, piece) {
 
             document.querySelector('#' + originalPosition).removeChild(document.querySelector('#' + originalPosition).childNodes[0]);
             document.querySelector('#' + clickPos).appendChild(divImg);
-
+            
             piecesRules();
             board[daPiece]['positionColumn'] = clickPos.charAt(0);
             board[daPiece]['positionRow'] = clickPos.charAt(1);
