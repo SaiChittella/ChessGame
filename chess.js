@@ -347,7 +347,7 @@ board = {
 }
 
 // speedy speedy
-function piecesRules() {
+function piecesRules(callFunc) {
     for(let i = 0; i<piecesArr.length; i++) {
         let stopColor = false;
         document.querySelector(piecesArr[i]).addEventListener('mouseover', () => {
