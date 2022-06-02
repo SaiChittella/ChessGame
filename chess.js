@@ -654,7 +654,8 @@ function movePiece(newPosition, originalPosition, piece) {
             let pieceSrc = "";
             for(let i=0; i<piecesToCheck.length; i++) {
                 if((board[piecesToCheck[i]]['positionColumn']) + (board[piecesToCheck[i]]['positionRow']) === originalPosition) {
-                    daPiece = piecesToCheck[i];        
+                    daPiece = piecesToCheck[i];       
+                    break; 
                 }
             }
 
