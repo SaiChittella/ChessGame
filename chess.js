@@ -366,8 +366,8 @@ function piecesRules(callFunc) {
         });
 
         document.querySelector(piecesArr[i]).addEventListener('click', () => {
-            removeAllClicks();
-            piecesRules();
+            // removeAllClicks();
+            // piecesRules();
             removeHighlights(true); 
             document.querySelector(piecesArr[i]).style.backgroundColor = 'lightGreen'; 
             stopColor = true;  
@@ -420,6 +420,7 @@ function highlightMoves(rise, run, currPiece) {
             findMovesDirection(direction[i], positionColumns, positionRow, distance, (letter[letterIndex + parseInt(run)]) + '' + (parseInt(positionRow) + parseInt(rise)), true, currPiece);
         }
     }    
+
     // killingMoves();
 }
 function findIndex(positionColumns) {
