@@ -330,11 +330,11 @@ board = {
     'blackrook1': {'positionColumn': 'A', 'positionRow': '8', 'slope': {'rise': [0], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right']},  
     'blackknight1': {'positionColumn': 'B', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': ['L']},  
     'blackbishop1': {'positionColumn': 'C', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal']},
-    'blackking': {'positionColumn': 'D', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '1', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal']},
-    'blackqueen': {'positionColumn': 'E', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal']},
+    'blackking': {'positionColumn': 'E', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '1', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal']},
+    'blackqueen': {'positionColumn': 'D', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal']},
     'blackrook2': {'positionColumn': 'H', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right']},  
     'blackknight2': {'positionColumn': 'G', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': 'L'},  
-    'blackbishop2': {'positionColumn': 'C', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal']},
+    'blackbishop2': {'positionColumn': 'F', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal']},
     'blackpawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward']},
     'blackpawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward']}, 
     'blackpawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward']},
@@ -517,6 +517,7 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
     let rowChange = 1;
     let indexChange = 1;
     let second = false;
+    
     do {
         let increment = false;
         if(knight){
@@ -544,7 +545,6 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
         } else if(counter === 2) {
             positionRow -= rowChange;
             index -= indexChange;
-
 
             if(checkIfOutOfBounds(index, positionRow)) {
                 increment = true;
