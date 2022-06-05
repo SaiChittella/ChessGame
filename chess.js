@@ -517,7 +517,7 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
     let rowChange = 1;
     let indexChange = 1;
     let second = false;
-    
+
     do {
         let increment = false;
         if(knight){
@@ -587,6 +587,10 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             
             if(!checkIfChildNodes(newPosition)) {
                 document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
+            } else {
+                if(checkIfOppositeColors(newPosition)){
+                    document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
+                }
             }
             
             newPosition = originalPosition;
@@ -618,6 +622,9 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
 
         } else {
+            if(checkIfOppositeColors(newPosition)){
+                document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
+            } 
             newPosition = originalPosition;
             positionRow = originalRow;
             index = originalColumn; 
@@ -628,6 +635,30 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
         }
 
     } while(true);
+}
+
+function checkIfOppositeColors(pos) {
+    let pieces = Object.keys(board);
+    let piece = '';
+    let color = '';
+    for(let i=0; i<pieces.length; i++) {
+        if((board[pieces[i]]['positionColumn'] + board[pieces[i]]['positionRow']) === pos) {
+            piece = pieces[i];
+            break;
+        }
+    }
+    if(piece.charAt(0) === 'b' && piece.charAt(1) === 'l') {
+        color = 'black';
+    } else {
+        color = 'white';
+    }
+
+    if(color === turn){
+        return false;
+    } else {
+        return true;
+    }
+
 }
 
 function checkIfChildNodes(pos) {
@@ -729,7 +760,6 @@ function removeHighlights(second) {
     let left1 = 32.2;
     let top1 = 89.5;
     let black = true;
-     
     
     for(let i=0; i<8; i++) {
         let j = 0;
