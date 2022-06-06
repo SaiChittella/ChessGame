@@ -641,6 +641,7 @@ function checkIfOppositeColors(pos) {
     let pieces = Object.keys(board);
     let piece = '';
     let color = '';
+
     for(let i=0; i<pieces.length; i++) {
         if((board[pieces[i]]['positionColumn'] + board[pieces[i]]['positionRow']) === pos) {
             piece = pieces[i];
