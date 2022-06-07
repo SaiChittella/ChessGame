@@ -633,6 +633,7 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             index = originalColumn; 
             counter++;
         }
+        
         if(!knight && !king) {
             movePiece(newPosition, originalPosition, 'bishop');
         }
