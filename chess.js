@@ -494,6 +494,9 @@ function findMovesDirection(direction, positionColumn, positionRow, distance, po
         } 
         
         if(checkIfChildNodes(newPosition)) {
+            if(checkIfOppositeColors(newPosition)){
+                document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
+            } 
             break;
         } else {
             document.querySelector('#' + newPosition).style.backgroundColor = '#347890';   
