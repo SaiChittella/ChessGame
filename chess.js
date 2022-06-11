@@ -28,8 +28,8 @@ pieces = {
         'rook': 'ChessPieces/WhitePieces/Rook.png',
         'knight': 'ChessPieces/WhitePieces/Knight.png',
         'bishop': 'ChessPieces/WhitePieces/Bishop.png',
-        'king': 'ChessPieces/WhitePieces/King.png',
         'queen': 'ChessPieces/WhitePieces/Queen.png',
+        'king': 'ChessPieces/WhitePieces/King.png',
         'pawn': 'ChessPieces/WhitePieces/Pawn.png',
     },
     'black': {
