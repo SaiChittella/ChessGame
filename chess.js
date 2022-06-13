@@ -505,7 +505,7 @@ function findMovesDirection(direction, positionColumn, positionRow, distance, po
         count++;
         movePiece(newPosition, originalPosition, piece);
     }    
-    while(positionRow <= 7 && positionRow > 0 && index < letter.length && index >= 0 && king != true && distance > count); 
+    while(positionRow <= 7 && positionRow > 0 && index < letter.length && index >= 0 && king != true && distance > count);
 }
 
 
