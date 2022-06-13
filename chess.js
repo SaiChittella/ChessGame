@@ -584,7 +584,7 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
 
         if((king || knight) && !checkIfOutOfBounds(index, positionRow) ) {
 
-            checkIfPieceIsInWay(newPosition);
+            checkIfPieceIsInWay(newPosition)
             
             newPosition = originalPosition;
             positionRow = originalRow;
@@ -611,18 +611,12 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             }
         }
 
-        if(!checkIfChildNodes(newPosition)) {
-            document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
-
-        } else {
-            if(checkIfOppositeColors(newPosition)){
-                document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
-            } 
+        if(checkIfPieceIsInWay(newPosition)) {
             newPosition = originalPosition;
             positionRow = originalRow;
             index = originalColumn; 
             counter++;
-        }
+        } 
         
         if(!knight && !king) {
             movePiece(newPosition, originalPosition, 'bishop');
@@ -630,11 +624,13 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
 
     } while(true);
 }
+
+
 function checkIfPieceIsInWay(newPosition) {
+
     if(checkIfChildNodes(newPosition)) {
         if(checkIfOppositeColors(newPosition)){
-            document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
-            
+            document.querySelector('#' + newPosition).style.backgroundColor = '#347890';            
             removeClicksForPiece(findPiece(newPosition));
         }
         return true;
@@ -656,6 +652,10 @@ function findPiece(newPosition) {
             return pieces[i];
         }
     }
+}
+
+function removeClicksForPiece(piece) {
+    document.querySelector('#' + piece).replaceWith(document.querySelector('#' + piece).cloneNode(true));
 }
 
 function checkIfOppositeColors(pos) {
@@ -694,6 +694,7 @@ function checkIfChildNodes(pos) {
 function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
+        // alert('Click Pos: ' + clickPos)
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
@@ -911,9 +912,9 @@ function rotateBoard() {
 
 }
 
-function removeAllClicks() {
-    for(let i=0; i<piecesArr.length; i++) {
-        document.querySelector(piecesArr[i]).replaceWith(document.querySelector(piecesArr[i]).cloneNode(true));
-    }
-}
+// function removeAllClicks() {
+//     for(let i=0; i<piecesArr.length; i++) {
+//         document.querySelector(piecesArr[i]).replaceWith(document.querySelector(piecesArr[i]).cloneNode(true));
+//     }
+// }
 
