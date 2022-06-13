@@ -634,13 +634,27 @@ function checkIfPieceIsInWay(newPosition) {
     if(checkIfChildNodes(newPosition)) {
         if(checkIfOppositeColors(newPosition)){
             document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
-            // findPiece();
-            // removeClicksForPiece();
+            
+            removeClicksForPiece(findPiece(newPosition));
         }
         return true;
     } else {
         document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
         return false;
+    }
+}
+
+function findPiece(newPosition) {
+    let pieces = Object.keys(board);
+
+    for(let i=0; i<pieces.length; i++) {
+        let positionColumn = board[pieces[i]]['positionColumn'];
+        let positionRow = board[pieces[i]]['positionRow'];
+
+        if((positionColumn + positionRow) === newPosition) {
+            board[pieces[i]]['inWay'] = true;
+            return pieces[i];
+        }
     }
 }
 
