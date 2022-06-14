@@ -345,6 +345,7 @@ board = {
     'blackpawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},  
 }
 
+
 // speedy speedy
 function piecesRules() {
     for(let i = 0; i<piecesArr.length; i++) {
@@ -696,10 +697,9 @@ function checkIfChildNodes(pos) {
 function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
-
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             if(checkIfChildNodes(newPosition)) {
-                // killings();
+                killings();
             }
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
@@ -779,6 +779,9 @@ function movePiece(newPosition, originalPosition, piece) {
     }
 }
 
+function killings() {
+
+}
 // NEW STUFF
 function removeHighlights(second) {
     let left1 = 32.2;
