@@ -611,13 +611,15 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             }
         }
 
+        
         if(checkIfPieceIsInWay(newPosition)) {
             newPosition = originalPosition;
             positionRow = originalRow;
             index = originalColumn; 
             counter++;
-        } 
-        
+        }         
+        alert('New Position : ' + newPosition)
+
         if(!knight && !king) {
             movePiece(newPosition, originalPosition, 'bishop');
         }
@@ -706,12 +708,8 @@ function movePiece(newPosition, originalPosition, piece) {
             let daPiece = "";
             let black = false;
             let pieceSrc = "";
-            for(let i=0; i<piecesToCheck.length; i++) {
-                if((board[piecesToCheck[i]]['positionColumn']) + (board[piecesToCheck[i]]['positionRow']) === originalPosition) {
-                    daPiece = piecesToCheck[i];       
-                    break; 
-                }
-            }
+
+            daPiece = findPiece(originalPosition);
 
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
