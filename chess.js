@@ -326,7 +326,7 @@ board = {
     'pawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
     'pawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
 
-
+    
     'blackrook1': {'positionColumn': 'A', 'positionRow': '8', 'slope': {'rise': [0], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false},  
     'blackknight1': {'positionColumn': 'B', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': ['L'], 'inWay': false},  
     'blackbishop1': {'positionColumn': 'C', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false},
