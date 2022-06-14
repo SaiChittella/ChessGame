@@ -870,8 +870,7 @@ function rotateButtons() {
 
 function rotatePieces(advanced) {
     for(let i=0; i<piecesArr.length; i++) {
-        if(advanced) {
-             
+        if(advanced) {             
             document.querySelector(piecesArr[i]).style.transform += 'rotate(180deg)';
         } else {
             document.querySelector(piecesArr[i]).style.transform = 'rotate(180deg)';
