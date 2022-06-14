@@ -611,6 +611,9 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             }
         }
 
+        if(!knight && !king) {
+            movePiece(newPosition, originalPosition, 'bishop');
+        }
         
         if(checkIfPieceIsInWay(newPosition)) {
             newPosition = originalPosition;
@@ -618,11 +621,8 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             index = originalColumn; 
             counter++;
         }         
-        alert('New Position : ' + newPosition)
 
-        if(!knight && !king) {
-            movePiece(newPosition, originalPosition, 'bishop');
-        }
+        
 
     } while(true);
 }
@@ -696,7 +696,7 @@ function checkIfChildNodes(pos) {
 function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
-        // alert('Click Pos: ' + clickPos)
+
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
