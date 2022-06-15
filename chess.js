@@ -780,7 +780,7 @@ function movePiece(newPosition, originalPosition, piece) {
 }
 
 function killings() {
-
+    
 }
 // NEW STUFF
 function removeHighlights(second) {
