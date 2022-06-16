@@ -713,7 +713,7 @@ function movePiece(newPosition, originalPosition, piece) {
                 board[piece]['firstMove'] = false;  
             }
             let colors = Object.keys(pieces);
-            let piecesToCheck = Object.keys(board)
+            let piecesToCheck = Object.keys(board);
             
             let daPiece = "";
             let black = false;
@@ -787,7 +787,7 @@ function movePiece(newPosition, originalPosition, piece) {
 }
 
 function killings() {
-
+    
 }   
 
 // NEW STUFF
