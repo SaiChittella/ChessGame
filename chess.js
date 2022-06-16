@@ -309,42 +309,49 @@ boardPieces = {
     '#blackpawn8': 'blackpawn8',
 }
 board = {
-    'rook1': {'positionColumn': 'A', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false},  
-    'knight1': {'positionColumn': 'B', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction':['L'], 'inWay': false},   
-    'bishop1': {'positionColumn': 'C', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false},
+    'rook1': {'positionColumn': 'A', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
+    'knight1': {'positionColumn': 'B', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction':['L'], 'inWay': false, 'type': 'knight'},   
+    'bishop1': {'positionColumn': 'C', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
     'king': {'positionColumn': 'D', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '1', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false},
-    'queen': {'positionColumn': 'E', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false},
-    'rook2': {'positionColumn': 'H', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false},  
-    'knight2': {'positionColumn': 'G', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction': ['L'], 'inWay': false},  
-    'bishop2': {'positionColumn': 'F', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false},
-    'pawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
-    'pawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false}, 
-    'pawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
-    'pawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
-    'pawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
-    'pawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
-    'pawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
-    'pawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false},
+    'queen': {'positionColumn': 'E', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false, 'type': 'queen'},
+    'rook2': {'positionColumn': 'H', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
+    'knight2': {'positionColumn': 'G', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction': ['L'], 'inWay': false, 'type': 'knight'},  
+    'bishop2': {'positionColumn': 'F', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
+    'pawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'}, 
+    'pawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
 
     
-    'blackrook1': {'positionColumn': 'A', 'positionRow': '8', 'slope': {'rise': [0], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false},  
-    'blackknight1': {'positionColumn': 'B', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': ['L'], 'inWay': false},  
-    'blackbishop1': {'positionColumn': 'C', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false},
+    'blackrook1': {'positionColumn': 'A', 'positionRow': '8', 'slope': {'rise': [0], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
+    'blackknight1': {'positionColumn': 'B', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': ['L'], 'inWay': false, 'type': 'knight'},  
+    'blackbishop1': {'positionColumn': 'C', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
     'blackking': {'positionColumn': 'E', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '1', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false},
-    'blackqueen': {'positionColumn': 'D', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false},
-    'blackrook2': {'positionColumn': 'H', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false},  
-    'blackknight2': {'positionColumn': 'G', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': 'L', 'inWay': false},  
-    'blackbishop2': {'positionColumn': 'F', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false},
-    'blackpawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},
-    'blackpawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false}, 
-    'blackpawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},
-    'blackpawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},
-    'blackpawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},
-    'blackpawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},
-    'blackpawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},
-    'blackpawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false},  
+    'blackqueen': {'positionColumn': 'D', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false, 'type': 'queen'},
+    'blackrook2': {'positionColumn': 'H', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
+    'blackknight2': {'positionColumn': 'G', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': 'L', 'inWay': false, 'type': 'knight'},  
+    'blackbishop2': {'positionColumn': 'F', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
+    'blackpawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'}, 
+    'blackpawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},  
 }
 
+pieceStats = {
+    'pawn': 1,
+    'knight': 3,
+    'bishop': 3,
+    'rook': 5,
+    'queen': 9,
+}
 
 // speedy speedy
 function piecesRules() {
@@ -780,7 +787,7 @@ function movePiece(newPosition, originalPosition, piece) {
 }
 
 function killings() {
-    
+
 }   
 
 // NEW STUFF
