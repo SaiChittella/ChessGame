@@ -787,7 +787,8 @@ function movePiece(newPosition, originalPosition, piece) {
 }
 
 function killings() {
-    
+
+    // stats();
 }   
 
 // NEW STUFF
@@ -894,7 +895,7 @@ function rotateLetters() {
         lettersToRotate.style.top = '103%';
         // lettersToRotate.style.left = '33%';                                
     } else{
-        lettersToRotate.style.top = '99%';
+        lettersToRotate.style.top = '-12%';
         lettersToRotate.style.left = '31%';
     }
 }
@@ -919,7 +920,7 @@ function rotateBoard() {
     document.querySelector('.board').style.height = '100%';
     document.querySelector('.board').style.position = 'absolute';
     document.querySelector('.board').style.marginLeft = 'auto';
-    document.querySelector('.board').style.marginTop = '100px';
+    document.querySelector('.board').style.marginTop = '0px';
 
 }
 
