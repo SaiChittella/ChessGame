@@ -706,7 +706,7 @@ function movePiece(newPosition, originalPosition, piece) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             if(checkIfChildNodes(newPosition)) {
-                killings();
+                killings(); 
             }
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
