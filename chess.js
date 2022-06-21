@@ -787,7 +787,6 @@ function movePiece(newPosition, originalPosition, piece) {
 }
 
 function killings() {
-    alert('IN DA KILLING'); 
     // stats();
 }   
 
