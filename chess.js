@@ -705,9 +705,11 @@ function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => {
-            if(checkIfChildNodes(newPosition)) {
-                killings(); 
-            }
+            // if(checkIfChildNodes(newPosition)) {
+            //     killings(); 
+            // }
+
+            test(newPosition);
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
                 board[piece]['firstMove'] = false;  
@@ -784,6 +786,10 @@ function movePiece(newPosition, originalPosition, piece) {
 
         });
     }
+}
+
+function test(pos) {
+    let keys = Object.keys(board);
 }
 
 function killings() {
