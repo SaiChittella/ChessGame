@@ -704,10 +704,12 @@ function checkIfChildNodes(pos) {
 function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
+
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             // if(checkIfChildNodes(newPosition)) {
             //     killings(); 
             // }
+
             test(newPosition);
 
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
@@ -726,7 +728,7 @@ function movePiece(newPosition, originalPosition, piece) {
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
             }
-            
+
             for(let i=0; i<colors.length; i++) {
                 let breakLoop = false;
                 let piecesInColor = Object.keys(pieces[colors[i]])
