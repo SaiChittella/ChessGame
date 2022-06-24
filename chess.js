@@ -708,8 +708,8 @@ function movePiece(newPosition, originalPosition, piece) {
             // if(checkIfChildNodes(newPosition)) {
             //     killings(); 
             // }
-
             test(newPosition);
+
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
                 board[piece]['firstMove'] = false;  
@@ -789,10 +789,17 @@ function movePiece(newPosition, originalPosition, piece) {
 }
 
 function test(pos) {
+    alert('POS: ' + pos)
     let keys = Object.keys(board);
+    for(let i=0; i<keys.length; i++) {
+        if((board[keys[i]]['positionColumn'] + board[keys[i]]['positionRow']) === pos) {
+            alert('PIECE : ' + keys[i])
+        }
+    }
 }
 
 function killings() {
+    alert('IN KILLING')
     // stats();
 }   
 
