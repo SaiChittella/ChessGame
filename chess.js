@@ -428,7 +428,6 @@ function highlightMoves(rise, run, currPiece) {
         }
     }    
 
-    // killingMoves();
 }
 function findIndex(positionColumns) {
     for(let i=0; i<letter.length; i++) {
@@ -507,6 +506,11 @@ function findMovesDirection(direction, positionColumn, positionRow, distance, po
         }
 
         count++;
+        if(pawn && count > 2) {
+            break;
+        }
+
+        // document.querySelector('#' + newPosition).style.backgroundColor = '#347890';            
         movePiece(newPosition, originalPosition, piece);
     }    
     while(positionRow <= 7 && positionRow > 0 && index < letter.length && index >= 0 && king != true && distance > count);
@@ -704,7 +708,6 @@ function checkIfChildNodes(pos) {
 function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
-
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             if(checkIfChildNodes(newPosition)) {
                 // killings(newPosition, piece); 
@@ -770,6 +773,10 @@ function movePiece(newPosition, originalPosition, piece) {
             document.querySelector('#' + originalPosition).removeChild(document.querySelector('#' + originalPosition).childNodes[0]);
             document.querySelector('#' + clickPos).appendChild(divImg);
             
+            for(let i=0; i<piecesArr.length; i++) {
+                removeClicksForPiece(piecesArr[i].substring(1, piecesArr[i].length));
+            }
+
             piecesRules();
             board[daPiece]['positionColumn'] = clickPos.charAt(0);
             board[daPiece]['positionRow'] = clickPos.charAt(1);
@@ -863,6 +870,7 @@ function flipBoard() {
     } else {
         rotateEverything();           
     }
+
 }
 
 function rotateEverything() {
