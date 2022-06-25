@@ -706,11 +706,10 @@ function movePiece(newPosition, originalPosition, piece) {
         let clickPos = newPosition;
 
         document.querySelector('#' + newPosition).addEventListener('click', () => {
-            // if(checkIfChildNodes(newPosition)) {
-            //     killings(); 
-            // }
+            if(checkIfChildNodes(newPosition)) {
+                // killings(newPosition, piece); 
+            }
 
-            test(newPosition);
 
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
@@ -785,25 +784,18 @@ function movePiece(newPosition, originalPosition, piece) {
             }
             
             flipBoard();
-
         });
     }
 }
 
-function test(pos) {
-    alert('POS: ' + pos)
-    let keys = Object.keys(board);
-    for(let i=0; i<keys.length; i++) {
-        if((board[keys[i]]['positionColumn'] + board[keys[i]]['positionRow']) === pos) {
-            alert('PIECE : ' + keys[i])
-        }
-    }
-}
-
-function killings() {
-    alert('IN KILLING')
+function killings(pos, piece) {
     // stats();
+    removePiece(pos);
 }   
+
+function removePiece(pos) {
+    document.querySelector('#' + pos).removeChild(document.querySelector('#' + pos).childNodes[0]);
+}
 
 // NEW STUFF
 function removeHighlights(second) {
