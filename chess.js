@@ -710,7 +710,7 @@ function movePiece(newPosition, originalPosition, piece) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => {
             if(checkIfChildNodes(newPosition)) {
-                // killings(newPosition, piece); 
+                killings(newPosition); 
             }
 
 
@@ -795,7 +795,7 @@ function movePiece(newPosition, originalPosition, piece) {
     }
 }
 
-function killings(pos, piece) {
+function killings(pos) {
     // stats();
     removePiece(pos);
 }   
