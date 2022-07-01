@@ -1,6 +1,7 @@
-//GRAMARLY CERTIFIED
-
+// GRAWWARLY CERTIFIED hellowkdk op wkljdoiasl,jnwadk snkjdwhajsh djwahdskj hlidkjawshdikjawshb dujqwaniokn dxwasjkdjkawn
+// where did we leave off
 // SAIHAAN API CREATION (BEST DEV 1 (CHILD PREDATOR), BEST DEV 2 (REEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHAAAAAN DA MIDGET))
+// lmao thats a good question butttttttt I may or may not have worked on it a littttttleee bit just a tad bit dont worry use session chat
 let turn = 'white';
 
 const piecesArr = ['#rook1', '#knight1', '#bishop1', '#king', '#queen', '#bishop2', '#knight2', '#rook2', '#pawn1', '#pawn2', '#pawn3', '#pawn4', '#pawn5', '#pawn6', '#pawn7', '#pawn8', '#blackrook1', '#blackknight1', '#blackbishop1', '#blackking', '#blackqueen', '#blackbishop2', '#blackknight2', '#blackrook2','#blackpawn1', '#blackpawn2', '#blackpawn3', '#blackpawn4', '#blackpawn5', '#blackpawn6', '#blackpawn7', '#blackpawn8'];
@@ -312,8 +313,8 @@ board = {
     'rook1': {'positionColumn': 'A', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
     'knight1': {'positionColumn': 'B', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction':['L'], 'inWay': false, 'type': 'knight'},   
     'bishop1': {'positionColumn': 'C', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
-    'king': {'positionColumn': 'D', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '1', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false},
-    'queen': {'positionColumn': 'E', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false, 'type': 'queen'},
+    'king': {'positionColumn': 'E', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '1', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false},
+    'queen': {'positionColumn': 'D', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['forward', 'backward', 'left', 'right', 'diagonal'], 'inWay': false, 'type': 'queen'},
     'rook2': {'positionColumn': 'H', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
     'knight2': {'positionColumn': 'G', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction': ['L'], 'inWay': false, 'type': 'knight'},  
     'bishop2': {'positionColumn': 'F', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
@@ -713,7 +714,6 @@ function movePiece(newPosition, originalPosition, piece) {
                 killings(newPosition); 
             }
 
-
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
                 board[piece]['distance'] = 1;
                 board[piece]['firstMove'] = false;  
@@ -727,6 +727,8 @@ function movePiece(newPosition, originalPosition, piece) {
 
             daPiece = findPiece(originalPosition);
 
+            alert("DA PIECE IS : " + daPiece)
+            
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
             }
@@ -798,12 +800,29 @@ function movePiece(newPosition, originalPosition, piece) {
 function killings(pos) {
     // stats();
     removePiece(pos);
+    
 }   
 
 function removePiece(pos) {
     document.querySelector('#' + pos).removeChild(document.querySelector('#' + pos).childNodes[0]);
+    let piece = findPiece(pos);
+    
+    for(let i = 0; i < piecesArr; i++){
+        if(piecesArr[i] === piece){
+            piecesArr.splice(i, 1);
+        }
+    }
+
+    const keys = Object.keys(board);
+    for(let i=0; i<keys.length; i++) {
+        if(keys[i] === piece) {
+            delete board[keys[i]];
+        }
+    }
 }
 
+
+//splice(start)
 // NEW STUFF
 function removeHighlights(second) {
     let left1 = 32.2;
@@ -906,7 +925,7 @@ function rotateLetters() {
     lettersToRotate.style.transform += 'rotate(180deg)';
     lettersToRotate.style.position = 'aboslute';
     if(turn === 'white') {
-        lettersToRotate.style.top = '103%';
+        lettersToRotate.style.top = '103%';  
         // lettersToRotate.style.left = '33%';                                
     } else{
         lettersToRotate.style.top = '-12%';
