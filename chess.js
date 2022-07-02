@@ -501,7 +501,6 @@ function findMovesDirection(direction, positionColumn, positionRow, distance, po
         } 
         
 
-
         if(checkIfPieceIsInWay(newPosition)) {
             break;
         }
@@ -511,7 +510,7 @@ function findMovesDirection(direction, positionColumn, positionRow, distance, po
             break;
         }
 
-        // document.querySelector('#' + newPosition).style.backgroundColor = '#347890';            
+        // document.querySelector('#' + newPosition).style.backgroundColor = '#347890';           
         movePiece(newPosition, originalPosition, piece);
     }    
     while(positionRow <= 7 && positionRow > 0 && index < letter.length && index >= 0 && king != true && distance > count);
@@ -709,9 +708,9 @@ function checkIfChildNodes(pos) {
 function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
-        document.querySelector('#' + newPosition).addEventListener('click', () => {
+        document.querySelector('#' + newPosition).addEventListener('click', () => { 
             if(checkIfChildNodes(newPosition)) {
-                killings(newPosition); 
+                // killings(newPosition); 
             }
 
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
@@ -727,8 +726,6 @@ function movePiece(newPosition, originalPosition, piece) {
 
             daPiece = findPiece(originalPosition);
 
-            alert("DA PIECE IS : " + daPiece)
-            
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
             }
@@ -757,6 +754,7 @@ function movePiece(newPosition, originalPosition, piece) {
                         }
                     }
                 }
+
                 if(breakLoop) {
                     break;
                 }
@@ -809,16 +807,20 @@ function removePiece(pos) {
     
     for(let i = 0; i < piecesArr; i++){
         if(piecesArr[i] === piece){
-            piecesArr.splice(i, 1);
+            piecesArr.splice(i, i+1);
         }
     }
-
+ 
     const keys = Object.keys(board);
     for(let i=0; i<keys.length; i++) {
         if(keys[i] === piece) {
             delete board[keys[i]];
         }
     }
+
+
+    alert('PIECES ARR: ' + piecesArr);
+    alert('BOARD : ' + keys)
 }
 
 
