@@ -710,7 +710,7 @@ function movePiece(newPosition, originalPosition, piece) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => { 
             if(checkIfChildNodes(newPosition)) {
-                // killings(newPosition); 
+                killings(newPosition); 
             }
 
             if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
@@ -804,10 +804,10 @@ function killings(pos) {
 function removePiece(pos) {
     document.querySelector('#' + pos).removeChild(document.querySelector('#' + pos).childNodes[0]);
     let piece = findPiece(pos);
-    
-    for(let i = 0; i < piecesArr; i++){
-        if(piecesArr[i] === piece){
-            piecesArr.splice(i, i+1);
+
+    for(let i = 0; i < piecesArr.length; i++){
+        if(piecesArr[i] === ('#' + piece)) {
+            piecesArr.splice(i, 1);
         }
     }
  
@@ -817,10 +817,6 @@ function removePiece(pos) {
             delete board[keys[i]];
         }
     }
-
-
-    alert('PIECES ARR: ' + piecesArr);
-    alert('BOARD : ' + keys)
 }
 
 
