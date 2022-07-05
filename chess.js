@@ -683,6 +683,7 @@ function checkIfOppositeColors(pos) {
             break;
         }
     }
+
     if(piece.charAt(0) === 'b' && piece.charAt(1) === 'l') {
         color = 'black';
     } else {
@@ -725,6 +726,7 @@ function movePiece(newPosition, originalPosition, piece) {
             let pieceSrc = "";
 
             daPiece = findPiece(originalPosition);
+            
 
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
