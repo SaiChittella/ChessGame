@@ -579,8 +579,7 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             newPosition = (letter[index]) + positionRow;
         }
         if(knight && !checkIfChildNodes(newPosition)) {
-            let testVar1 = originalPosition;
-            movePiece(newPosition, originalPosition, 'knight', testVar1);
+            movePiece(newPosition, originalPosition, 'knight');
         } else if(king && !checkIfChildNodes(newPosition)) {
             movePiece(newPosition, originalPosition, 'king');
         } 
@@ -693,8 +692,7 @@ function checkIfChildNodes(pos) {
     }
 }
 
-function movePiece(newPosition, originalPosition, piece, var1) {
-    let testVar = originalPosition;
+function movePiece(newPosition, originalPosition, piece) {
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => {             
@@ -713,7 +711,6 @@ function movePiece(newPosition, originalPosition, piece, var1) {
             let daPiece = "";
             let black = false;
             let pieceSrc = "";
-            alert('VAR 1 : ' + var1);
 
             daPiece = findPiece(originalPosition);
             
