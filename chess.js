@@ -1,9 +1,9 @@
 // GRAWWARLY CERTIFIED hellowkdk op wkljdoiasl,jnwadk snkjdwhajsh djwahdskj hlidkjawshdikjawshb dujqwaniokn dxwasjkdjkawn
-// where did we leave off
-// SAIHAAN API CREATION (BEST DEV 1 (CHILD PREDATOR), BEST DEV 2 (REEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHAAAAAN DA MIDGET))
-// lmao thats a good question butttttttt I may or may not have worked on it a littttttleee bit just a tad bit dont worry use session chat
+//ajs 
+// lmao wassupp bruh lmao 89ijoewdio where were we ee e e  e e e  eaself ej adsel  e e  e e ////////
+ //the sky// SAIHAAN API CREATION (BEST DEV 1 (CHILD PREDATOR), BEST DEV 2 (REEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHAAAAAN DA MIDGET)) 
 let turn = 'white';
-
+//where were we 
 const piecesArr = ['#rook1', '#knight1', '#bishop1', '#king', '#queen', '#bishop2', '#knight2', '#rook2', '#pawn1', '#pawn2', '#pawn3', '#pawn4', '#pawn5', '#pawn6', '#pawn7', '#pawn8', '#blackrook1', '#blackknight1', '#blackbishop1', '#blackking', '#blackqueen', '#blackbishop2', '#blackknight2', '#blackrook2','#blackpawn1', '#blackpawn2', '#blackpawn3', '#blackpawn4', '#blackpawn5', '#blackpawn6', '#blackpawn7', '#blackpawn8'];
 
 boardArr = {
@@ -256,16 +256,6 @@ function putTurns(firstPlayer) {
         turns[0] = 'White';
         turns[1] = 'Black';
     }
-    else{
-        turns[0] = 'Black'; 
-        turns[1] = 'White';
-        // flipBoard();
-    }
-    checkTurns();
-} 
-
-function checkTurns() {
-    alert('Order: ' + turns);
 } 
 
 
@@ -589,7 +579,8 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             newPosition = (letter[index]) + positionRow;
         }
         if(knight && !checkIfChildNodes(newPosition)) {
-            movePiece(newPosition, originalPosition, 'knight');
+            let testVar1 = originalPosition;
+            movePiece(newPosition, originalPosition, 'knight', testVar1);
         } else if(king && !checkIfChildNodes(newPosition)) {
             movePiece(newPosition, originalPosition, 'king');
         } 
@@ -633,15 +624,11 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
             index = originalColumn; 
             counter++;
         }         
-
-        
-
     } while(true);
 }
 
 
 function checkIfPieceIsInWay(newPosition) {
-
     if(checkIfChildNodes(newPosition)) {
         if(checkIfOppositeColors(newPosition)){
             document.querySelector('#' + newPosition).style.backgroundColor = '#347890';            
@@ -706,11 +693,13 @@ function checkIfChildNodes(pos) {
     }
 }
 
-function movePiece(newPosition, originalPosition, piece) {
+function movePiece(newPosition, originalPosition, piece, var1) {
+    let testVar = originalPosition;
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
-        document.querySelector('#' + newPosition).addEventListener('click', () => { 
+        document.querySelector('#' + newPosition).addEventListener('click', () => {             
             if(checkIfChildNodes(newPosition)) {
+                // alert("Pos: " + newPosition);
                 killings(newPosition); 
             }
 
@@ -724,10 +713,10 @@ function movePiece(newPosition, originalPosition, piece) {
             let daPiece = "";
             let black = false;
             let pieceSrc = "";
+            alert('VAR 1 : ' + var1);
 
             daPiece = findPiece(originalPosition);
             
-
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
             }
@@ -775,6 +764,7 @@ function movePiece(newPosition, originalPosition, piece) {
             document.querySelector('#' + originalPosition).removeChild(document.querySelector('#' + originalPosition).childNodes[0]);
             document.querySelector('#' + clickPos).appendChild(divImg);
             
+            // does something (don't know what, once figured out will put here)
             for(let i=0; i<piecesArr.length; i++) {
                 removeClicksForPiece(piecesArr[i].substring(1, piecesArr[i].length));
             }
@@ -800,7 +790,6 @@ function movePiece(newPosition, originalPosition, piece) {
 function killings(pos) {
     // stats();
     removePiece(pos);
-    
 }   
 
 function removePiece(pos) {
@@ -812,7 +801,7 @@ function removePiece(pos) {
             piecesArr.splice(i, 1);
         }
     }
- 
+
     const keys = Object.keys(board);
     for(let i=0; i<keys.length; i++) {
         if(keys[i] === piece) {
@@ -962,5 +951,3 @@ function rotateBoard() {
 //         document.querySelector(piecesArr[i]).replaceWith(document.querySelector(piecesArr[i]).cloneNode(true));
 //     }
 // }
-
-    
