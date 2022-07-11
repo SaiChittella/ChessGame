@@ -754,14 +754,14 @@ function movePiece(newPosition, originalPosition, piece) {
             divImg.style.height = '117.5px';
             divImg.style.width = '117.5px';
             divImg.style.position = 'absolute';
-            divImg.style.left = '-4%';
+            divImg.style.left = '-4%';          
             divImg.style.top = '0%'; 
             divImg.id = daPiece;
 
             document.querySelector('#' + originalPosition).removeChild(document.querySelector('#' + originalPosition).childNodes[0]);
             document.querySelector('#' + clickPos).appendChild(divImg);
             
-            // does something (don't know what, once figured out will put here)
+            // does something (don't know what, once figured out will put here) (removes the piece, reason for substring is so that the hastag doesn't get sent and break the function me me big brain)
             for(let i=0; i<piecesArr.length; i++) {
                 removeClicksForPiece(piecesArr[i].substring(1, piecesArr[i].length));
             }
