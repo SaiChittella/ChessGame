@@ -701,7 +701,9 @@ function movePiece(newPosition, originalPosition, piece) {
                 killings(newPosition); 
             }
 
-            if((piece.charAt(0) === 'p' && board[piece]['firstMove'] === true)){
+            alert('Piece ' + piece) 
+            
+            if((piece.charAt(0) === 'p' || (piece.charAt(0) === 'b' && piece.charAt(5) === 'p')) && board[piece]['firstMove'] === true){
                 board[piece]['distance'] = 1;
                 board[piece]['firstMove'] = false;  
             }
