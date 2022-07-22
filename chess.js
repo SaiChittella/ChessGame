@@ -981,6 +981,10 @@ function rotateBoard() {
     document.querySelector('.board').style.marginTop = '0px';
 
 }
+window.onbeforeunload = function() {
+    return "Data will be lost if you leave the page, are you sure?";
+};
+
 
 // function removeAllClicks() {
 //     for(let i=0; i<piecesArr.length; i++) {
