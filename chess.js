@@ -3,6 +3,10 @@
 // lmao wassupp bruh lmao 89ijoewdio where were we ee e e  e e e  eaself ej adsel  e e  e e ////////
  //the sky// SAIHAAN API CREATION (BEST DEV 1 (CHILD PREDATOR), BEST DEV 2 (REEEEEEEEEEEEEEEEEEEEEEEEHHHHHHHHHHHAAAAAN DA MIDGET)) 
 let turn = 'white';
+
+let whitePoints = 0;
+let blackPoints = 0 ;
+
 //where were we 
 const piecesArr = ['#rook1', '#knight1', '#bishop1', '#king', '#queen', '#bishop2', '#knight2', '#rook2', '#pawn1', '#pawn2', '#pawn3', '#pawn4', '#pawn5', '#pawn6', '#pawn7', '#pawn8', '#blackrook1', '#blackknight1', '#blackbishop1', '#blackking', '#blackqueen', '#blackbishop2', '#blackknight2', '#blackrook2','#blackpawn1', '#blackpawn2', '#blackpawn3', '#blackpawn4', '#blackpawn5', '#blackpawn6', '#blackpawn7', '#blackpawn8'];
 
@@ -301,6 +305,7 @@ boardPieces = {
     '#blackpawn7': 'blackpawn7',
     '#blackpawn8': 'blackpawn8',
 }
+
 board = {
     'rook1': {'positionColumn': 'A', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
     'knight1': {'positionColumn': 'B', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction':['L'], 'inWay': false, 'type': 'knight'},   
@@ -375,7 +380,12 @@ function piecesRules() {
 
         }); 
     }
+
+    document.querySelector('#'+ statsButton).addEventListener('click', () => {
+        
+    });
 }
+
 
 
 piecesRules();
@@ -695,9 +705,12 @@ function checkIfChildNodes(pos) {
 }
 
 function movePiece(newPosition, originalPosition, piece) {
-    // squaresToRemove.
+    squaresToRemove.push(newPosition); 
+    squaresToRemove.push(originalPosition);
+
     if(newPosition != originalPosition) {
-        let clickPos = newPosition;
+        let clickPos = newPosition; 
+        
         document.querySelector('#' + newPosition).addEventListener('click', () => {             
             if(checkIfChildNodes(newPosition)) {
                 // alert("Pos: " + newPosition);
@@ -718,7 +731,7 @@ function movePiece(newPosition, originalPosition, piece) {
             let pieceSrc = "";
 
             daPiece = findPiece(originalPosition);
-            alert('DA PIECE : ' + daPiece)
+            // alert('DA PIECE : ' + daPiece)
 
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
@@ -772,13 +785,15 @@ function movePiece(newPosition, originalPosition, piece) {
                 removeClicksForPiece(piecesArr[i].substring(1, piecesArr[i].length));
             }
 
-            piecesRules();
             
             board[daPiece]['positionColumn'] = clickPos.charAt(0);
             board[daPiece]['positionRow'] = clickPos.charAt(1);
-
-            removeSquareClick(newPosition);
             
+            for(let i=0; i<squaresToRemove.length; i++) {
+                removeSquareClick(squaresToRemove[i]);
+            }
+            
+            piecesRules();
             removeHighlights(true);
             
             if(turn === 'white') {
@@ -799,9 +814,19 @@ function removeSquareClick(pos) {
 
 
 function killings(pos) { 
-    // stats();
+    stats(pos);
     removePiece(pos);
 }   
+
+function stats(pos) {
+    let piece  = findPiece(pos);
+    
+    if(turn === 'white'){
+        whitePoints += pieceStats[board[piece]['type']];
+    } else {
+        blackPoints += pieceStats[board[piece]['type']];
+    }
+}
 
 function removePiece(pos) {
     document.querySelector('#' + pos).removeChild(document.querySelector('#' + pos).childNodes[0]);
@@ -959,6 +984,7 @@ function rotateBoard() {
 
 // function removeAllClicks() {
 //     for(let i=0; i<piecesArr.length; i++) {
-//         document.querySelector(piecesArr[i]).replaceWith(document.querySelector(piecesArr[i]).cloneNode(true));
+//         removeSquareClick(piecesArr[i].substring(1, piecesArr[i].length));
 //     }
+//     piecesRules();
 // }
