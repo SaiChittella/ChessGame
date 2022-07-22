@@ -6,6 +6,8 @@ let turn = 'white';
 //where were we 
 const piecesArr = ['#rook1', '#knight1', '#bishop1', '#king', '#queen', '#bishop2', '#knight2', '#rook2', '#pawn1', '#pawn2', '#pawn3', '#pawn4', '#pawn5', '#pawn6', '#pawn7', '#pawn8', '#blackrook1', '#blackknight1', '#blackbishop1', '#blackking', '#blackqueen', '#blackbishop2', '#blackknight2', '#blackrook2','#blackpawn1', '#blackpawn2', '#blackpawn3', '#blackpawn4', '#blackpawn5', '#blackpawn6', '#blackpawn7', '#blackpawn8'];
 
+const squaresToRemove = [];
+
 boardArr = {
     'A': [1,2,3,4,5,6,7,8],
     'B': [1,2,3,4,5,6,7,8],
@@ -693,6 +695,7 @@ function checkIfChildNodes(pos) {
 }
 
 function movePiece(newPosition, originalPosition, piece) {
+    // squaresToRemove.
     if(newPosition != originalPosition) {
         let clickPos = newPosition;
         document.querySelector('#' + newPosition).addEventListener('click', () => {             
@@ -701,11 +704,11 @@ function movePiece(newPosition, originalPosition, piece) {
                 killings(newPosition); 
             }
 
-            alert('Piece ' + piece) 
-            
-            if((piece.charAt(0) === 'p' || (piece.charAt(0) === 'b' && piece.charAt(5) === 'p')) && board[piece]['firstMove'] === true){
-                board[piece]['distance'] = 1;
-                board[piece]['firstMove'] = false;  
+            if((piece.charAt(0) === 'p' || (piece.charAt(0) === 'b' && piece.charAt(5) === 'p')) && piece != 'bishop'){
+                if(board[piece]['firstMove'] === true) {
+                    board[piece]['distance'] = 1;
+                    board[piece]['firstMove'] = false;      
+                }
             }
             let colors = Object.keys(pieces);
             let piecesToCheck = Object.keys(board);
@@ -715,7 +718,8 @@ function movePiece(newPosition, originalPosition, piece) {
             let pieceSrc = "";
 
             daPiece = findPiece(originalPosition);
-            
+            alert('DA PIECE : ' + daPiece)
+
             if(daPiece.startsWith('b') && daPiece.charAt(1) === 'l') {
                 black = true;
             }
@@ -769,9 +773,12 @@ function movePiece(newPosition, originalPosition, piece) {
             }
 
             piecesRules();
+            
             board[daPiece]['positionColumn'] = clickPos.charAt(0);
             board[daPiece]['positionRow'] = clickPos.charAt(1);
-    
+
+            removeSquareClick(newPosition);
+            
             removeHighlights(true);
             
             if(turn === 'white') {
@@ -786,7 +793,12 @@ function movePiece(newPosition, originalPosition, piece) {
     }
 }
 
-function killings(pos) {
+function removeSquareClick(pos) {
+    document.querySelector('#' + pos).replaceWith(document.querySelector('#' + pos).cloneNode(true));
+}
+
+
+function killings(pos) { 
     // stats();
     removePiece(pos);
 }   
