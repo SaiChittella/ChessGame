@@ -131,7 +131,7 @@ putPiecesOnBoard('black');
 function putThingsOnBoard(type, backwards) {
     if(type === 'numbers') {
         numberDiv.innerHTML = '';
-        let topCounter = 72;
+        let topCounter = 80;
         if(!backwards) {
             for(let i = 8; i >= 1; i--){
                 let numberDiv = document.querySelector('#numberDiv');
@@ -315,14 +315,14 @@ board = {
     'rook2': {'positionColumn': 'H', 'positionRow': '1', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
     'knight2': {'positionColumn': 'G', 'positionRow': '1', 'slope': {'rise': [2], 'run': [1]}, 'distance': '3', 'direction': ['L'], 'inWay': false, 'type': 'knight'},  
     'bishop2': {'positionColumn': 'F', 'positionRow': '1', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
-    'pawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
-    'pawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'}, 
-    'pawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
-    'pawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
-    'pawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
-    'pawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
-    'pawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
-    'pawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward'], 'inWay': false, 'type': 'pawn'},
+    'pawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'pawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'}, 
+    'pawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'pawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'pawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'pawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'pawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'pawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '2', 'firstMove': true, 'distance': 2, 'direction': ['forward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
 
     
     'blackrook1': {'positionColumn': 'A', 'positionRow': '8', 'slope': {'rise': [0], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
@@ -333,14 +333,14 @@ board = {
     'blackrook2': {'positionColumn': 'H', 'positionRow': '8', 'slope': {'rise': [1], 'run': [0]}, 'distance': '8', 'direction': ['forward','backward','left','right'], 'inWay': false, 'type': 'rook'},  
     'blackknight2': {'positionColumn': 'G', 'positionRow': '8', 'slope': {'rise': [2], 'run': [1]}, 'distance': '4', 'direction': 'L', 'inWay': false, 'type': 'knight'},  
     'blackbishop2': {'positionColumn': 'F', 'positionRow': '8', 'slope': {'rise': [1], 'run': [1]}, 'distance': '8', 'direction': ['diagonal'], 'inWay': false, 'type': 'bishop'},
-    'blackpawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
-    'blackpawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'}, 
-    'blackpawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
-    'blackpawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
-    'blackpawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
-    'blackpawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
-    'blackpawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},
-    'blackpawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward'], 'inWay': false, 'type': 'pawn'},  
+    'blackpawn1': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'A', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn2': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'B', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'}, 
+    'blackpawn3': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'C', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn4': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'D', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn5': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'E', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn6': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'F', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn7': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'G', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},
+    'blackpawn8': {'slope': {'rise': [2], 'run': [0]}, 'positionColumn': 'H', 'positionRow': '7', 'firstMove': true, 'distance': 2, 'direction': ['backward', 'diagonal'], 'inWay': false, 'type': 'pawn'},  
 }
 
 pieceStats = {
@@ -377,13 +377,12 @@ function piecesRules() {
             document.querySelector(piecesArr[i]).style.backgroundColor = 'lightGreen'; 
             stopColor = true;  
             findSlopePawns(boardPieces[piecesArr[i]]); 
-
         }); 
     }
 
-    document.querySelector('#'+ statsButton).addEventListener('click', () => {
+    // document.querySelector('#'+ statsButton).addEventListener('click', () => {
         
-    });
+    // });
 }
 
 
@@ -493,8 +492,23 @@ function findMovesDirection(direction, positionColumn, positionRow, distance, po
             newPosition = (letter[index+1]) + positionRow;
             index+=1;
         } else if(direction === 'diagonal'){
-            newPosition = (positionColumn) + parseInt(positionRow);
-            diagonalHighlight(index, positionRow, positionColumn, newPosition, king, false);
+            if(pawn) {
+                let temp;
+                if(turn == 'black') {
+                    temp = (letter[index-1]) + (positionRow-1);
+                } else {
+                    temp = (letter[index+1]) + (positionRow+1);
+                }
+
+                if(checkIfPieceIsInWay(temp, true)) {
+                    alert('HERE');
+                    document.querySelector('#' + (letter[index+1]) + (positionRow+1)).style.backgroundColor = '#347890';
+                }
+                newPosition = temp;
+            } else {
+                newPosition = (positionColumn) + parseInt(positionRow);
+                diagonalHighlight(index, positionRow, positionColumn, newPosition, king, false);
+            }
         } else if(knight) {
             break;
         }
@@ -639,7 +653,7 @@ function diagonalHighlight(index, positionRow, positionColumn, originalPosition,
 }
 
 
-function checkIfPieceIsInWay(newPosition) {
+function checkIfPieceIsInWay(newPosition, diagPawn) {
     if(checkIfChildNodes(newPosition)) {
         if(checkIfOppositeColors(newPosition)){
             document.querySelector('#' + newPosition).style.backgroundColor = '#347890';            
@@ -647,7 +661,9 @@ function checkIfPieceIsInWay(newPosition) {
         }
         return true;
     } else {
-        document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
+        if(!diagPawn) {
+            document.querySelector('#' + newPosition).style.backgroundColor = '#347890';
+        }
         return false;
     }
 }
@@ -687,6 +703,9 @@ function checkIfOppositeColors(pos) {
     } else {
         color = 'white';
     }
+
+    alert('TURN IS : ' + turn)
+    alert('COLOR : ' + color)
 
     if(color === turn){
         return false;
